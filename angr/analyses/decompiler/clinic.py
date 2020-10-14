@@ -195,7 +195,7 @@ class Clinic(Analysis):
         if not type(block_node) is BlockNode:
             return block_node
 
-        block = self.project.factory.block(block_node.addr, block_node.size)
+        block = self.project.factory.block(block_node.addr, block_node.size, cross_insn_opt=False)
 
         ail_block = ailment.IRSBConverter.convert(block.vex, self._ail_manager)
         return ail_block
